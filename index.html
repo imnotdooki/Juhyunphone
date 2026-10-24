@@ -193,37 +193,114 @@ img{-webkit-user-drag:none}
 .cin .snd.on{opacity:1}
 .cin .snd svg{width:17px;height:17px;stroke:#3a1d1d;stroke-width:2.4}
 
-/* ===== X ===== */
-.xx{background:#000;color:#fff}
-.xw{flex:1;overflow-y:auto;scrollbar-width:none}
-.xw::-webkit-scrollbar{display:none}
-.x-top{flex:none;padding:56px 16px 6px;display:flex;align-items:center;gap:14px;background:rgba(0,0,0,.85);-webkit-backdrop-filter:blur(12px);position:relative;z-index:5}
-.x-top b{font-size:18px}
-.x-banner{height:110px;background:linear-gradient(120deg,#1a1a1a,#2c2c3a 60%,#3a2c3c)}
-.x-avrow{display:flex;justify-content:space-between;align-items:flex-end;padding:0 16px;margin-top:-36px}
-.x-av{width:76px;height:76px;border-radius:50%;overflow:hidden;border:4px solid #000;background:#333}
-.x-av img{width:100%;height:100%;object-fit:cover}
-.x-follow{font-size:14px;font-weight:600;color:#000;background:#fff;border-radius:18px;padding:7px 16px}
-.x-meta{padding:10px 16px 0}
-.x-nm{font-size:19px;font-weight:700;display:flex;align-items:center;gap:4px}
-.x-lock{width:15px;height:15px;fill:#fff;opacity:.9}
-.x-hd{font-size:14px;color:#888;margin-top:1px}
-.x-bio{font-size:14.5px;line-height:1.4;margin-top:8px}
-.x-stats{display:flex;gap:18px;margin-top:10px;font-size:13.5px;color:#888}
-.x-stats b{color:#fff}
-.tw{display:flex;gap:10px;padding:12px 16px;border-bottom:1px solid #1c1c1c}
-.tw-av{width:40px;height:40px;border-radius:50%;overflow:hidden;background:#333;flex:none}
-.tw-av img{width:100%;height:100%;object-fit:cover}
-.tw-b{flex:1;min-width:0}
-.tw-h{font-size:14.5px;display:flex;gap:5px;align-items:center;flex-wrap:wrap}
-.tw-h b{font-weight:700}
-.tw-h .lk2{width:13px;height:13px;fill:#fff}
-.tw-h span{color:#888;font-weight:400}
-.tw-tx{font-size:14.5px;line-height:1.4;margin-top:2px}
-.tw-ic{display:flex;gap:34px;margin-top:8px;color:#888;font-size:12.5px}
-.tw-ic span{display:flex;gap:5px;align-items:center}
-.tw-ic svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6}
+/* ===== X (home timeline + profile) ===== */
+#appX{background:#000;color:#fff}
+.x-screen{position:relative;flex:1;min-height:0;overflow:hidden;background:#000}
 
+/* ---------- home timeline ---------- */
+.xh{position:absolute;inset:0;display:flex;flex-direction:column;background:#000;
+ transition:transform .4s cubic-bezier(.32,.72,0,1),opacity .34s;will-change:transform}
+.xh.away{transform:translateX(-14%);opacity:.45}
+.xh-top{flex:none;display:flex;align-items:center;justify-content:space-between;padding:50px 15px 5px}
+.xh-me{width:36px;height:36px;border-radius:50%;overflow:hidden;background:#2f3336;flex:none;display:block}
+.xh-me img{width:100%;height:100%;object-fit:cover;display:block}
+.xh-logo{width:25px;height:25px;fill:#fff;display:block}
+.xh-pad{width:36px;flex:none}
+.xh-tabs{flex:none;display:flex;align-items:stretch;gap:24px;padding:2px 16px 0;overflow-x:auto;scrollbar-width:none;border-bottom:.5px solid #242628}
+.xh-tabs::-webkit-scrollbar{display:none}
+.xh-tabs button{flex:none;font-size:15px;font-weight:600;color:#71767b;padding:9px 0 12px;position:relative;white-space:nowrap;
+ display:flex;align-items:center;gap:5px;transition:color .2s}
+.xh-tabs button.on{color:#e7e9ea;font-weight:700}
+.xh-tabs button.on:after{content:'';position:absolute;left:-2px;right:-2px;bottom:0;height:3px;border-radius:2px;background:#e7e9ea}
+.xh-tabs button svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.xh-tabs .add{gap:6px}
+.xh-tabs .add i{width:6px;height:6px;border-radius:50%;background:#7856ff;flex:none;display:block}
+.xh-tabs .add b{font-weight:500;font-size:16px;color:#71767b;line-height:1}
+.xh-feed{flex:1;min-height:0;overflow-y:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:14px}
+.xh-feed::-webkit-scrollbar{display:none}
+
+/* tweet */
+.xt{display:flex;gap:11px;padding:12px 15px;border-bottom:.5px solid #1c1e20}
+.xt-av{width:40px;height:40px;border-radius:50%;overflow:hidden;flex:none;background:#2f3336}
+.xt-av img{width:100%;height:100%;object-fit:cover;display:block}
+.xt-b{flex:1;min-width:0}
+.xt-h{display:flex;align-items:center;gap:4px;font-size:15px;line-height:1.2;flex-wrap:wrap}
+.xt-h b{font-weight:700;color:#e7e9ea}
+.xt-h .vf{width:16px;height:16px;fill:#1d9bf0;flex:none}
+.xt-h .vf.gold{fill:#e2b719}
+.xt-h span{color:#71767b;font-weight:400}
+.xt-h .more{margin-left:auto;color:#71767b;font-size:15px;line-height:1;padding:0 2px}
+.xt-tx{font-size:15px;line-height:1.36;color:#e7e9ea;margin-top:3px;word-break:break-word}
+.xt-badge{display:inline-flex;align-items:center;gap:5px;margin-top:5px;font-size:12.5px;color:#71767b}
+.xt-badge svg{width:13px;height:13px;stroke:#71767b;fill:none;stroke-width:1.6}
+.xt-act{display:flex;align-items:center;justify-content:space-between;margin-top:9px;margin-right:6px;color:#71767b;font-size:12.5px}
+.xt-act span{display:flex;align-items:center;gap:5px}
+.xt-act svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* ad card */
+.xad{margin-top:9px;border-radius:13px;overflow:hidden;background:#a9cbe8}
+.xad-in{position:relative;padding:14px 14px 12px}
+.xad-h{font-size:16.5px;line-height:1.16;font-weight:800;color:#0d1b2a;letter-spacing:-.2px}
+.xad-p{position:absolute;top:14px;right:14px;width:47%;font-size:7.6px;line-height:1.5;color:#3f5a75;text-align:left}
+.xad-bars{display:flex;align-items:flex-end;gap:4px;height:120px;margin-top:14px;padding-bottom:2px}
+.xad-bars i{flex:1;background:#0d1b2a;border-radius:1px;opacity:.85}
+.xad-bars i.hi{opacity:1}
+.xad-chip{position:absolute;left:14px;bottom:12px;background:#0d1b2a;color:#fff;font-size:9.5px;font-weight:600;padding:3px 7px;border-radius:5px}
+.xad-src{font-size:12.5px;color:#71767b;margin-top:6px}
+
+/* fab + bottom nav */
+.xh-fab{position:absolute;right:16px;bottom:74px;width:56px;height:56px;border-radius:50%;background:#1d9bf0;
+ display:grid;place-items:center;box-shadow:0 4px 16px rgba(29,155,240,.45);z-index:9;transition:opacity .25s,transform .25s}
+.xh-fab svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round}
+.xh-fab.hide{opacity:0;transform:scale(.8);pointer-events:none}
+.xh-nav{flex:none;display:flex;align-items:center;justify-content:space-around;padding:9px 6px 2px;border-top:.5px solid #1c1e20;background:#000}
+.xh-nav button{flex:1;display:grid;place-items:center;padding:4px 0;color:#e7e9ea;position:relative}
+.xh-nav button svg{width:25px;height:25px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.xh-nav button.on svg{fill:currentColor;stroke:none}
+.xh-nav button.on:after{content:'';position:absolute;top:-9px;width:20px;height:2.5px;border-radius:2px;background:#1d9bf0;opacity:0}
+
+/* ---------- profile ---------- */
+.xp{position:absolute;inset:0;background:#000;display:flex;flex-direction:column;z-index:8;
+ transform:translateX(100%);transition:transform .42s cubic-bezier(.32,.72,0,1);will-change:transform}
+.xp.on{transform:translateX(0)}
+.xp-scroll{flex:1;min-height:0;overflow-y:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.xp-scroll::-webkit-scrollbar{display:none}
+.xp-ban{position:relative;height:188px;background:#2a2a2c;overflow:hidden}
+.xp-ban img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.xp-ban:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0) 45%)}
+.xp-top{position:absolute;top:52px;left:0;right:0;display:flex;justify-content:space-between;padding:0 14px;z-index:3}
+.xp-round{width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+ display:grid;place-items:center;transition:background .15s,transform .15s}
+.xp-round:active{background:rgba(0,0,0,.7);transform:scale(.94)}
+.xp-round svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.xp-avrow{padding:0 16px;margin-top:-46px;position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:space-between}
+.xp-av{width:92px;height:92px;border-radius:50%;overflow:hidden;border:4px solid #000;background:#000;box-shadow:0 2px 10px rgba(0,0,0,.5)}
+.xp-av img{width:100%;height:100%;object-fit:cover;display:block}
+.xp-info{padding:9px 16px 0}
+.xp-name{display:flex;align-items:center;gap:8px;font-size:25px;font-weight:800;letter-spacing:-.4px;line-height:1.15}
+.xp-ver{display:flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;color:#e7e9ea;border:1px solid #536471;border-radius:14px;padding:3px 9px 3px 6px;flex:none}
+.xp-ver svg{width:14px;height:14px;fill:#1d9bf0}
+.xp-hd{font-size:15.5px;color:#71767b;margin-top:2px}
+.xp-tr{display:flex;align-items:center;gap:5px;color:#1d9bf0;font-size:14.5px;margin-top:11px}
+.xp-tr svg{width:15px;height:15px;stroke:#1d9bf0;fill:none;stroke-width:1.7}
+.xp-bio{font-size:15.5px;line-height:1.4;margin-top:10px;color:#e7e9ea}
+.xp-meta{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:14.5px;color:#71767b}
+.xp-meta span{display:flex;align-items:center;gap:5px}
+.xp-meta svg{width:15px;height:15px;stroke:#71767b;fill:none;stroke-width:1.6}
+.xp-stats{display:flex;gap:16px;margin-top:11px;font-size:14.5px;color:#71767b}
+.xp-stats b{color:#e7e9ea;font-weight:700;margin-right:3px}
+.xp-btns{display:flex;gap:10px;margin-top:15px}
+.xp-btns button{flex:1;height:40px;border-radius:20px;border:1px solid #536471;font-size:15px;font-weight:700;color:#e7e9ea;transition:background .15s}
+.xp-btns button:active{background:#16181c}
+.xp-tabs{display:flex;align-items:stretch;margin-top:14px;border-bottom:.5px solid #242628;padding:0 4px}
+.xp-tabs button{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;font-size:15px;font-weight:600;color:#71767b;padding:12px 0;position:relative}
+.xp-tabs button.pt{flex:1.35;justify-content:flex-start;padding-left:12px;color:#e7e9ea;font-weight:700}
+.xp-tabs button svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.xp-tabs button.pt svg{width:19px;height:19px}
+.xp-tabs button.pt .cv{width:14px;height:14px;stroke-width:2.4}
+.xp-tabs button.pt:after{content:'';position:absolute;left:8px;right:20%;bottom:-.5px;height:3px;border-radius:2px;background:#e7e9ea}
+.xp-wtf{padding:16px 16px 30px}
+.xp-wtf h3{font-size:22px;font-weight:800;letter-spacing:-.3px}
 /* ===== Instagram ===== */
 #ig{z-index:55;background:#fff;color:#111}
 .ig-f{flex:1;min-height:0;display:flex;flex-direction:column;overflow-y:auto;scrollbar-width:none}
@@ -712,25 +789,149 @@ input[type=range].fsl::-webkit-slider-thumb{-webkit-appearance:none;width:14px;h
 
 <!-- X -->
 <div id="appX" class="layer app xx dark">
-  <div class="xw">
-    <div class="x-top"><b>프로필</b></div>
-    <div class="x-banner"></div>
-    <div class="x-avrow">
-      <div class="x-av"><img id="xAvt" alt=""></div>
-      <button class="x-follow">팔로우 신청</button>
+  <div class="x-screen">
+
+    <!-- ===== home timeline ===== -->
+    <div class="xh" id="xhHome">
+      <div class="xh-top">
+        <button class="xh-me" id="xhMe"><img src="img/1a9b0df4-1ef9-4546-9b9b-b93e4915ed75.jpg" alt=""></button>
+        <svg class="xh-logo" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span class="xh-pad"></span>
+      </div>
+      <div class="xh-tabs" id="xhTabs">
+        <button class="on">For you<svg viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></svg></button>
+        <button>Following</button>
+        <button class="add"><i></i>Add<b>+</b></button>
+        <button>Celebs</button>
+        <button>News</button>
+      </div>
+      <div class="xh-feed" id="xhFeed">
+
+        <article class="xt">
+          <div class="xt-av"><img src="img/k_kevin.jpg" alt=""></div>
+          <div class="xt-b">
+            <div class="xt-h"><b>kevin moon</b>
+              <svg class="vf" viewBox="0 0 24 24"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36z"/></svg>
+              <span>@kebeaanmoon · 17h</span><span class="more">⋯</span></div>
+            <div class="xt-tx">I am in fact very much lactose intolerant</div>
+            <div class="xt-act">
+              <span><svg viewBox="0 0 24 24"><path d="M20.6 11.6c0 4.3-3.9 7.8-8.6 7.8-1 0-2-.2-2.9-.5L4.3 20l1.3-3.6A7.4 7.4 0 013.4 11.6C3.4 7.3 7.3 3.8 12 3.8s8.6 3.5 8.6 7.8z"/></svg>45</span>
+              <span><svg viewBox="0 0 24 24"><path d="M7 7h9.4a3.6 3.6 0 013.6 3.6V13M7 7l3-3M7 7l3 3M17 17H7.6A3.6 3.6 0 014 13.4V11M17 17l-3-3M17 17l-3 3"/></svg>97</span>
+              <span><svg viewBox="0 0 24 24"><path d="M12 20.2s-7.6-4.6-9.4-9C1.3 7.6 3.5 4.8 6.4 4.8c2 0 3.6 1.1 5.6 3.4 2-2.3 3.6-3.4 5.6-3.4 2.9 0 5.1 2.8 3.8 6.4-1.8 4.4-9.4 9-9.4 9z"/></svg>740</span>
+              <span><svg viewBox="0 0 24 24"><path d="M4 20V10M9.3 20V6M14.6 20v-8M20 20V9"/></svg>15K</span>
+              <span><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4.4L6 21z"/></svg></span>
+              <span><svg viewBox="0 0 24 24"><path d="M12 15V4M8 7.5L12 3.5l4 4M5 13v6.5h14V13"/></svg></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="xt">
+          <div class="xt-av" style="border-radius:9px;background:#fff;display:grid;place-items:center">
+            <span style="color:#0d1b2a;font-weight:800;font-size:15px;letter-spacing:-.5px">DA</span>
+          </div>
+          <div class="xt-b">
+            <div class="xt-h"><b>Digital Asset</b>
+              <svg class="vf gold" viewBox="0 0 24 24"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36z"/></svg>
+              <span>@digitalasset</span><span class="more">Ad ⋯</span></div>
+            <div class="xt-tx">Tokenized is a claim. Onchain is ownership. DA Registry brings real assets to Canton with legal finality and compliance built in.</div>
+            <div class="xad">
+              <div class="xad-in">
+                <div class="xad-h">Real-World<br>Assets:<br>Now On-Chain</div>
+                <div class="xad-p">As adoption accelerates, the market is projected to exceed $6 trillion, driven by both institutional demand and improved infrastructure</div>
+                <div class="xad-bars" id="xadBars"></div>
+                <div class="xad-chip">Onchain is Ownership</div>
+              </div>
+            </div>
+            <div class="xad-src">From digitalasset.com</div>
+            <div class="xt-act">
+              <span><svg viewBox="0 0 24 24"><path d="M20.6 11.6c0 4.3-3.9 7.8-8.6 7.8-1 0-2-.2-2.9-.5L4.3 20l1.3-3.6A7.4 7.4 0 013.4 11.6C3.4 7.3 7.3 3.8 12 3.8s8.6 3.5 8.6 7.8z"/></svg>56</span>
+              <span><svg viewBox="0 0 24 24"><path d="M7 7h9.4a3.6 3.6 0 013.6 3.6V13M7 7l3-3M7 7l3 3M17 17H7.6A3.6 3.6 0 014 13.4V11M17 17l-3-3M17 17l-3 3"/></svg>34</span>
+              <span><svg viewBox="0 0 24 24"><path d="M12 20.2s-7.6-4.6-9.4-9C1.3 7.6 3.5 4.8 6.4 4.8c2 0 3.6 1.1 5.6 3.4 2-2.3 3.6-3.4 5.6-3.4 2.9 0 5.1 2.8 3.8 6.4-1.8 4.4-9.4 9-9.4 9z"/></svg>524</span>
+              <span><svg viewBox="0 0 24 24"><path d="M4 20V10M9.3 20V6M14.6 20v-8M20 20V9"/></svg>31M</span>
+              <span><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4.4L6 21z"/></svg></span>
+              <span><svg viewBox="0 0 24 24"><path d="M12 15V4M8 7.5L12 3.5l4 4M5 13v6.5h14V13"/></svg></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="xt">
+          <div class="xt-av"><img src="img/d0c851e1-0dd8-4c73-9fb8-73b3e099b44b.jpg" alt=""></div>
+          <div class="xt-b">
+            <div class="xt-h"><b>bex</b>
+              <svg class="vf" viewBox="0 0 24 24"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36z"/></svg>
+              <span>@deobimom · 1h</span><span class="more">⋯</span></div>
+            <div class="xt-badge"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.2-2.8 7.5-7 9-4.2-1.5-7-4.8-7-9V6z"/><path d="M9 12.2l2 2 4-4.2"/></svg>Fan account</div>
+            <div class="xt-tx">"gives you hell" is the title of jacob's new song…</div>
+          </div>
+        </article>
+
+        <article class="xt">
+          <div class="xt-av"><img src="img/eb3621f0-c726-4d21-aec5-35878acb5070.jpg" alt=""></div>
+          <div class="xt-b">
+            <div class="xt-h"><b>Ju115hyun</b>
+              <svg class="vf" viewBox="0 0 24 24"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36z"/></svg>
+              <span>@Moonrock1124 · 2h</span><span class="more">⋯</span></div>
+            <div class="xt-tx">오늘 카페 다녀왔어 ☕️ 재현형이랑 커플룩 맞춰 입기로 함 🐕</div>
+            <div class="xt-act">
+              <span><svg viewBox="0 0 24 24"><path d="M20.6 11.6c0 4.3-3.9 7.8-8.6 7.8-1 0-2-.2-2.9-.5L4.3 20l1.3-3.6A7.4 7.4 0 013.4 11.6C3.4 7.3 7.3 3.8 12 3.8s8.6 3.5 8.6 7.8z"/></svg>3</span>
+              <span><svg viewBox="0 0 24 24"><path d="M7 7h9.4a3.6 3.6 0 013.6 3.6V13M7 7l3-3M7 7l3 3M17 17H7.6A3.6 3.6 0 014 13.4V11M17 17l-3-3M17 17l-3 3"/></svg>1</span>
+              <span><svg viewBox="0 0 24 24"><path d="M12 20.2s-7.6-4.6-9.4-9C1.3 7.6 3.5 4.8 6.4 4.8c2 0 3.6 1.1 5.6 3.4 2-2.3 3.6-3.4 5.6-3.4 2.9 0 5.1 2.8 3.8 6.4-1.8 4.4-9.4 9-9.4 9z"/></svg>27</span>
+              <span><svg viewBox="0 0 24 24"><path d="M4 20V10M9.3 20V6M14.6 20v-8M20 20V9"/></svg>412</span>
+              <span><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4.4L6 21z"/></svg></span>
+              <span><svg viewBox="0 0 24 24"><path d="M12 15V4M8 7.5L12 3.5l4 4M5 13v6.5h14V13"/></svg></span>
+            </div>
+          </div>
+        </article>
+
+      </div>
     </div>
-    <div class="x-meta">
-      <div class="x-nm"><span id="xName"></span><svg class="x-lock" viewBox="0 0 24 24"><path d="M6 10V8a6 6 0 0112 0v2h1a1 1 0 011 1v9a1 1 0 01-1 1H5a1 1 0 01-1-1v-9a1 1 0 011-1h1zm2 0h8V8a4 4 0 00-8 0v2z"/></svg></div>
-      <div class="x-hd" id="xHd"></div>
-      <div class="x-bio">JB 전담 💛 | 재현형 개인 사육사 | BBQ는 금요일</div>
-      <div class="x-stats"><span><b>128</b> 팔로잉</span><span><b>96</b> 팔로워</span></div>
+
+    <!-- ===== profile ===== -->
+    <div class="xp" id="xpProf">
+      <div class="xp-scroll">
+        <div class="xp-ban">
+          <img src="img/xbanner.jpg" alt="">
+          <div class="xp-top">
+            <button class="xp-round" id="xpBack"><svg viewBox="0 0 24 24"><path d="M14.5 4.5L7 12l7.5 7.5"/></svg></button>
+            <button class="xp-round"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.3"/><path d="M15.3 15.3L20 20"/></svg></button>
+          </div>
+        </div>
+        <div class="xp-avrow">
+          <div class="xp-av"><img src="img/1a9b0df4-1ef9-4546-9b9b-b93e4915ed75.jpg" alt=""></div>
+        </div>
+        <div class="xp-info">
+          <div class="xp-name">Ju115hyun
+            <button class="xp-ver"><svg viewBox="0 0 24 24"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36z"/></svg>Get verified</button>
+          </div>
+          <div class="xp-hd">@Moonrock1124</div>
+          <button class="xp-tr"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="M3.8 12h16.4M12 3.8c2.4 2.6 3.6 5.3 3.6 8.2s-1.2 5.6-3.6 8.2C9.6 17.6 8.4 14.9 8.4 12S9.6 6.4 12 3.8z"/></svg>Show translation</button>
+          <div class="xp-bio">JuHyun🐕 | 주연&amp;현재</div>
+          <div class="xp-meta">
+            <span><svg viewBox="0 0 24 24"><path d="M12 21s6.4-6.3 6.4-10.8A6.4 6.4 0 105.6 10.2C5.6 14.7 12 21 12 21z"/><circle cx="12" cy="10" r="2.3"/></svg>Seoul, Republic of Korea</span>
+            <span><svg viewBox="0 0 24 24"><rect x="3.6" y="5" width="16.8" height="15" rx="3"/><path d="M3.6 9.6h16.8M8 3v3.4M16 3v3.4"/></svg>Joined August 2026 ›</span>
+          </div>
+          <div class="xp-stats"><span><b>11</b>Following</span><span><b>0</b>Followers</span></div>
+          <div class="xp-btns"><button>Share Profile</button><button>Edit Profile</button></div>
+        </div>
+        <div class="xp-tabs">
+          <button class="pt"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="4"/><path d="M7.5 9.5h8M7.5 13h5.5"/></svg>Posts<svg class="cv" viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></svg></button>
+          <button><svg viewBox="0 0 24 24"><path d="M20.6 11.6c0 4.3-3.9 7.8-8.6 7.8-1 0-2-.2-2.9-.5L4.3 20l1.3-3.6A7.4 7.4 0 013.4 11.6C3.4 7.3 7.3 3.8 12 3.8s8.6 3.5 8.6 7.8z"/></svg></button>
+          <button><svg viewBox="0 0 24 24"><path d="M7 7h9.4a3.6 3.6 0 013.6 3.6V13M7 7l3-3M7 7l3 3M17 17H7.6A3.6 3.6 0 014 13.4V11M17 17l-3-3M17 17l-3 3"/></svg></button>
+          <button><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M10.5 9.5l5 2.5-5 2.5z"/></svg></button>
+        </div>
+        <div class="xp-wtf"><h3>Who to follow</h3></div>
+      </div>
     </div>
-    <div class="x-compose">
-      <img class="xc-av" id="xCav" alt="">
-      <input id="xInput" placeholder="무승 일이 일어나고 있나요?">
-      <button id="xPost">게시</button>
-    </div>
-    <div id="xTweets"></div>
+
+  </div>
+
+  <button class="xh-fab" id="xhFab"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+  <div class="xh-nav" id="xhNav">
+    <button class="on"><svg viewBox="0 0 24 24"><path d="M12 2.6L2.6 10.4V21h6.6v-6.2h5.6V21h6.6V10.4z"/></svg></button>
+    <button><svg viewBox="0 0 24 24"><circle cx="10.6" cy="10.6" r="6.4"/><path d="M15.4 15.4L20 20"/></svg></button>
+    <button><svg viewBox="0 0 24 24"><path d="M4.5 19.5l6.2-15M13.3 4.5l6.2 15"/></svg></button>
+    <button><svg viewBox="0 0 24 24"><path d="M12 3.6a5.4 5.4 0 015.4 5.4v3.8l1.7 3.2H4.9l1.7-3.2V9A5.4 5.4 0 0112 3.6zM9.8 19.2a2.2 2.2 0 004.4 0"/></svg></button>
+    <button><svg viewBox="0 0 24 24"><path d="M4 5.2h16v11.4H9.4L4 20.2z"/></svg></button>
   </div>
   <div class="abar"><i></i></div>
 </div>
@@ -903,7 +1104,7 @@ const CONFIG = {
     { name: "sunwoo", img: "img/2b1e5254-2735-4bf9-bf56-1f4374d159a8.jpg", msg: "오늘 연습 6시까지요!", time: "10월 17일" },
     { name: "__0hoony", img: "img/a90c7203-4ca2-44aa-b689-ecdef57e8a1a.jpg", msg: "ㅋㅋㅋㅋㅋㅋ", time: "10월 16일" },
     { name: "jakeybae", img: "img/0602920f-cb18-4bb9-84e8-0eb2cb881b73.jpg", msg: "Bangkok. 사진 올렸어", time: "10월 13일" },
-    { name: "tbzuyeon", img: "img/e4f263e0-deee-441e-a5ae-f137047eaed0.jpg", msg: "The Future is in the past.", time: "10월 12일" },
+    { name: "tbzuyeon", img: "img/av_me.jpg", msg: "The Future is in the past.", time: "10월 12일" },
     { name: "leejaehyunow", img: "", msg: "Jy。", time: "10월 6일" }
   ],
   twitterHandle: "Lj0115",
@@ -952,7 +1153,7 @@ const CONFIG = {
     video: "call.mp4",
     selfVideo: "me.mp4",
         posts: [
-      { user:"tbzuyeon", av:"img/e4f263e0-deee-441e-a5ae-f137047eaed0.jpg", imgs:["img/3a619b3c-c14d-44d7-86a2-e43cfadc8fd6.jpg","img/dc50ea03-764c-4550-b150-b1ee8b17f31e.jpg"], likes:"1,204", caption:"The Future is in the past.", time:"2시간 전" },
+      { user:"tbzuyeon", av:"img/av_me.jpg", imgs:["img/3a619b3c-c14d-44d7-86a2-e43cfadc8fd6.jpg","img/dc50ea03-764c-4550-b150-b1ee8b17f31e.jpg"], likes:"1,204", caption:"The Future is in the past.", time:"2시간 전" },
       { user:"leejaehyunow", imgs:["img/034be7a2-2507-47f6-8f3e-7c39c6a34d33.jpg","img/9fae5307-908d-4947-9887-cc56ee419e68.jpg"], likes:"873", caption:"Jy。", time:"5시간 전" },
       { user:"__qfeed__", av:"img/9aa9de0c-6713-4548-92f1-7d1b7be061c5.jpg", imgs:["img/eb3621f0-c726-4d21-aec5-35878acb5070.jpg","img/5ccd8c0c-4e2c-43b1-af58-fa353e7d9360.jpg","img/2942f4e2-3c0d-489f-be16-d804d72a4c91.jpg"], likes:"3,560", caption:"Autumn.", time:"1일 전" },
       { user:"jakeybae", av:"img/0602920f-cb18-4bb9-84e8-0eb2cb881b73.jpg", imgs:["img/0af39434-affe-4360-be10-3e2813f7c857.jpg","img/d0c851e1-0dd8-4c73-9fb8-73b3e099b44b.jpg"], likes:"2,318", caption:"Bangkok.", time:"1일 전" },
@@ -1188,13 +1389,22 @@ document.querySelectorAll('.app .abar, .chat .abar').forEach(b=>b.addEventListen
 
   /* 头像：把照片放进 img/ 后在下面写成 'img/文件名.jpg' 即可；留空则用名字首字默认头像 */
   const AVATARS = {
-    '이주연': ME_AV,
+    '이주연':'',
     '재현형':'', '창민이':'', '김선우':'', '영훈형':'', '재이콤형':'',
     '엄마':'', '이주환':'', 'Kevin':'', 'Eric':'', '상연이':'',
     '에릭':'', '더보이즈':''
   };
-  const PAL=['#d9705f','#5b8dd6','#4fa87a','#c08a3e','#7d6bc4','#c4678f','#3f9ba0','#a1743f','#6c7fd0','#b06a8f'];
-  function bgFor(n){let h=0;for(let i=0;i<n.length;i++)h=(h*31+n.charCodeAt(i))%9973;return PAL[h%PAL.length];}
+  const PAL=['#d9705f','#5b8dd6','#4fa87a','#c08a3e','#7d6bc4','#c4678f','#3f9ba0','#a1743f',
+             '#6c7fd0','#b06a8f','#8a9fc4','#b5856a','#5f9e8f'];
+  const NAME_ORDER=['이주연','재현형','창민이','김선우','영훈형','재이콤형','엄마','이주환',
+                    'Kevin','Eric','상연이','더보이즈','에릭'];
+  function bgFor(n){
+    const key=n==='에릭'?'Eric':n;
+    const i=NAME_ORDER.indexOf(key);
+    if(i>=0)return PAL[i%PAL.length];
+    let h=0;for(let k=0;k<key.length;k++)h=(h*31+key.charCodeAt(k))%9973;
+    return PAL[h%PAL.length];
+  }
   function avSpan(n,cls){
     const src=AVATARS[n]||'';
     if(src)return '<span class="'+(cls||'av')+'"><img src="'+src+'" alt=""></span>';
@@ -1426,41 +1636,62 @@ document.querySelectorAll('.app .abar, .chat .abar').forEach(b=>b.addEventListen
   cin.addEventListener('keydown',e=>{if(e.key==='Enter')send();});
   snd.addEventListener('click',send);
 })();
-/* ---------- X ---------- */
+/* ---------- X (home timeline + profile) ---------- */
 (function(){
-  $('#xName').textContent=CONFIG.userName;
-  $('#xHd').textContent='@'+CONFIG.twitterHandle;
-  $('#xAvt').src=CONFIG.instagram.avatar;
-  $('#xTweets').innerHTML=CONFIG.tweets.map(t=>
-    '<div class="tw"><div class="tw-av"><img src="'+CONFIG.instagram.avatar+'" alt=""></div><div class="tw-b">'+
-    '<div class="tw-h"><b>'+esc(CONFIG.userName)+'</b><svg class="lk2" viewBox="0 0 24 24"><path d="M6 10V8a6 6 0 0112 0v2h1a1 1 0 011 1v9a1 1 0 01-1 1H5a1 1 0 01-1-1v-9a1 1 0 011-1h1zm2 0h8V8a4 4 0 00-8 0v2z"/></svg><span>@'+esc(CONFIG.twitterHandle)+' · '+esc(t.date)+'</span></div>'+
-    '<div class="tw-tx">'+esc(t.text)+'</div>'+
-    '<div class="tw-ic">'+
-    '<span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-8 8H4l2.2-2.6A8 8 0 1121 12z"/></svg>'+esc(t.reply||'0')+'</span>'+
-    '<span><svg viewBox="0 0 24 24"><path d="M4 8h9a4 4 0 014 4M4 8l3-3M4 8l3 3M20 16h-9a4 4 0 01-4-4M20 16l-3-3M20 16l-3 3"/></svg>'+esc(t.rt||'0')+'</span>'+
-    '<span><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.3-9C1.5 7.8 3.6 5 6.4 5c2 0 3.6 1.1 5.6 3.4C14 6.1 15.6 5 17.6 5c2.8 0 4.9 2.8 3.7 6-1.8 4.4-9.3 9-9.3 9z"/></svg>'+esc(t.like||'0')+'</span>'+
-    '</div></div></div>'
-  ).join('');
-  const xInput=$('#xInput'),xPost=$('#xPost'),xCav=$('#xCav');
-  xCav.src=CONFIG.instagram.avatar;
-  function postTweet(){
-    const v=xInput.value.trim();if(!v)return;
-    const d=new Date();const date=(d.getMonth()+1)+'월 '+d.getDate()+'일';
-    const t={date:date,text:v,reply:'0',rt:'0',like:'0'};
-    CONFIG.tweets.unshift(t);xInput.value='';
-    $('#xTweets').insertAdjacentHTML('afterbegin',
-      '<div class="tw"><div class="tw-av"><img src="'+CONFIG.instagram.avatar+'" alt=""></div><div class="tw-b">'+
-      '<div class="tw-h"><b>'+esc(CONFIG.userName)+'</b><svg class="lk2" viewBox="0 0 24 24"><path d="M6 10V8a6 6 0 0112 0v2h1a1 1 0 011 1v9a1 1 0 01-1 1H5a1 1 0 01-1-1v-9a1 1 0 011-1h1zm2 0h8V8a4 4 0 00-8 0v2z"/></svg><span>@'+esc(CONFIG.twitterHandle)+' · '+esc(t.date)+'</span></div>'+
-      '<div class="tw-tx">'+esc(t.text)+'</div>'+
-      '<div class="tw-ic"><span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-8 8H4l2.2-2.6A8 8 0 1121 12z"/></svg>0</span>'+
-      '<span><svg viewBox="0 0 24 24"><path d="M4 8h9a4 4 0 014 4M4 8l3-3M4 8l3 3M20 16h-9a4 4 0 01-4-4M20 16l-3-3M20 16l-3 3"/></svg>0</span>'+
-      '<span><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.3-9C1.5 7.8 3.6 5 6.4 5c2 0 3.6 1.1 5.6 3.4C14 6.1 15.6 5 17.6 5c2.8 0 4.9 2.8 3.7 6-1.8 4.4-9.3 9-9.3 9z"/></svg>0</span></div></div></div>'
-    );
-  }
-  xPost.addEventListener('click',postTweet);
-  xInput.addEventListener('keydown',e=>{if(e.key==='Enter')postTweet();});
-})();
+  /* ad card bar chart */
+  const bars=[38,44,31,50,42,36,47,33,52,40,45,35,49,41,56,78,96,62,44,38,46,33,51,42,37,48,35,44,40,52,36,45];
+  const barsEl=document.getElementById('xadBars');
+  if(barsEl)barsEl.innerHTML=bars.map(h=>'<i style="height:'+h+'%"'+(h>70?' class="hi"':'')+'></i>').join('');
 
+  const home=document.getElementById('xhHome');
+  const prof=document.getElementById('xpProf');
+  const fab=document.getElementById('xhFab');
+  if(!home||!prof)return;
+
+  function openProf(){
+    prof.classList.add('on');
+    home.classList.add('away');
+    if(fab)fab.classList.add('hide');
+    prof.querySelector('.xp-scroll').scrollTop=0;
+  }
+  function closeProf(){
+    prof.classList.remove('on');
+    home.classList.remove('away');
+    if(fab)fab.classList.remove('hide');
+  }
+  const me=document.getElementById('xhMe');
+  if(me)me.addEventListener('click',openProf);
+  const back=document.getElementById('xpBack');
+  if(back)back.addEventListener('click',closeProf);
+  document.querySelectorAll('#appX .abar').forEach(b=>b.addEventListener('click',closeProf));
+
+  /* top tabs */
+  const tabs=document.getElementById('xhTabs');
+  if(tabs)tabs.addEventListener('click',e=>{
+    const b=e.target.closest('button');if(!b)return;
+    tabs.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+  });
+
+  /* like / repost toggle */
+  document.getElementById('xhFeed').addEventListener('click',e=>{
+    const sp=e.target.closest('.xt-act span');if(!sp)return;
+    const svg=sp.querySelector('svg');if(!svg)return;
+    const d=svg.querySelector('path');if(!d)return;
+    const path=d.getAttribute('d');
+    const isHeart=path.indexOf('12 20.2')===0;
+    const isRepost=path.indexOf('7 7h9.4')===0;
+    if(!isHeart&&!isRepost)return;
+    const numTxt=(sp.lastChild&&sp.lastChild.nodeValue||'').trim();
+    if(!/^\d+$/.test(numTxt))return;
+    const on=sp.dataset.on==='1';
+    sp.dataset.on=on?'0':'1';
+    const color=isHeart?'#f91880':'#00ba7c';
+    sp.style.color=on?'':color;
+    svg.style.stroke=on?'':color;
+    if(isHeart)svg.style.fill=on?'none':color;
+    sp.lastChild.nodeValue=String(on?parseInt(numTxt,10)-1:parseInt(numTxt,10)+1);
+  });
+})();
 /* ---------- Instagram feed ---------- */
 const ig=$('#ig');
 function renderIG(){
